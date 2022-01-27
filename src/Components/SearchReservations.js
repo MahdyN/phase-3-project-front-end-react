@@ -16,35 +16,21 @@ function SearchReservations({reservations, setReservations}) {
         setCount(count+1)
       }
       else{
-        const reset = {
-          name: "",
-          partysize: 0
-                }
-
-      fetch(`http://localhost:3000/Resos/${id}` , {
-        method: "PATCH",
-        headers: {
-                  "Content-Type" : "application/json"
-                  },          
-        body: JSON.stringify(reset)
+      alert(`${name}, you have successfully cancelled your reservation at ${restaurant} for ${time} on ${date}`)
+      fetch(`http://localhost:9292/reservations/${id}` , {
+        method: "DELETE"
         })
         .then((response) => response.json())
-        .then((updatedReservation) => {
-        const updatedReservationList = reservations.map((reservation) =>{
-        if(reservation.id === updatedReservation.id) {
-        return updatedReservation
-        }
-        else return reservation
-        })
+        .then(() => {
+        const updatedReservationList = reservations.filter((reservation) =>{return reservation.id !== id})
         setReservations(updatedReservationList)
-        alert(`${name}, you have successfully cancelled your reservation at ${restaurant} for ${time} on ${date}`)
         setCount(0)
       }
     )}
   }
 
     const matchingReservations = reservations.filter((reservation) => {
-        if(search.length == 0) {
+        if(search.length === 0) {
           return false
         }
         else {return reservation.name.toLowerCase().includes(search.toLowerCase())}

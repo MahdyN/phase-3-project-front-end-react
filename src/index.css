@@ -74,17 +74,45 @@ code {
 
 .make-res {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   padding-top: 1rem;
+  background-color: rgba(255, 0, 0, 0.7);
+  width: 950px;
+  height: 125px;
+  margin-left: 25%;
+  margin-top: 20px;
+  border-style: double;
+  border-color: black
+}
+
+.make-res select{
+  height:25px
 }
 
 .make-res label {
   color:white;
+  padding-right: 20px;
   text-shadow:
 		-1px -1px 0 #000,
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+}
+
+.res-button{
+
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 0, 0, 1);
+  font-weight: 900;
+  border-style: solid;
+  border-color: black;
+  height: 35px;
+  text-shadow:
+		-1px -1px 0 #FFF,
+		1px -1px 0 #FFF,
+		-1px 1px 0 #FFF,
+		1px 1px 0 #FFF;
 }
 
 .cards {
@@ -133,6 +161,7 @@ code {
   }
 
   .search {
+    margin-top: 10px;
     padding-top: 1rem;
     color:white;
     text-shadow:
@@ -140,6 +169,13 @@ code {
 		1px -1px 0 #000,
 		-1px 1px 0 #000,
 		1px 1px 0 #000;
+  }
+
+  .search label {
+    background-color: rgba(255, 0, 0, 0.7);
+    padding: 10px;
+    border-style: double;
+    border-color: black
   }
 
   .about {
